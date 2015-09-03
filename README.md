@@ -4,11 +4,11 @@
 [![Build Status](https://travis-ci.org/kreta-plugins/Comment.svg?branch=master)](https://travis-ci.org/kreta-plugins/Comment)
 [![Coverage Status](https://img.shields.io/coveralls/kreta-plugins/Comment.svg)](https://coveralls.io/r/kreta-plugins/Comment)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kreta-plugins/Comment/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/kreta-plugins/Comment/?branch=master)
-[![HHVM Status](http://hhvm.h4cc.de/badge/kreta-plugins/comment.svg)](http://hhvm.h4cc.de/package/kreta-plugins/comment)
-[![Total Downloads](https://poser.pugx.org/kreta-plugins/comment/downloads)](https://packagist.org/packages/kreta-plugins/comment)
+[![HHVM Status](http://hhvm.h4cc.de/badge/kreta/comment.svg)](http://hhvm.h4cc.de/package/kreta/comment)
+[![Total Downloads](https://poser.pugx.org/kreta/comment/downloads)](https://packagist.org/packages/kreta/comment)
 
-[![Latest Stable Version](https://poser.pugx.org/kreta-plugins/comment/v/stable.svg)](https://packagist.org/packages/kreta-plugins/comment)
-[![Latest Unstable Version](https://poser.pugx.org/kreta-plugins/comment/v/unstable.svg)](https://packagist.org/packages/kreta-plugins/comment)
+[![Latest Stable Version](https://poser.pugx.org/kreta/comment/v/stable.svg)](https://packagist.org/packages/kreta/comment)
+[![Latest Unstable Version](https://poser.pugx.org/kreta/comment/v/unstable.svg)](https://packagist.org/packages/kreta/comment)
 
 Tests
 -----
@@ -56,4 +56,4 @@ Kreta Comment Component is created by:
 
 Licensing Options
 -----------------
-[![License](https://poser.pugx.org/kreta-plugins/comment/license.svg)](https://github.com/kreta/kreta/blob/master/LICENSE)
+[![License](https://poser.pugx.org/kreta/comment/license.svg)](https://github.com/kreta/kreta/blob/master/LICENSE)
