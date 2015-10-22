@@ -1,12 +1,13 @@
 <?php
 
 /*
- * This file belongs to Kreta.
- * The source code of application includes a LICENSE file
- * with all information about license.
+ * This file is part of the Kreta package.
  *
- * @author benatespina <benatespina@gmail.com>
- * @author gorkalaucirica <gorka.lauzirika@gmail.com>
+ * (c) Beñat Espiña <benatespina@gmail.com>
+ * (c) Gorka Laucirica <gorka.lauzirika@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Kreta\Component\Comment\Repository;
@@ -16,9 +17,10 @@ use Kreta\Component\Issue\Model\Interfaces\IssueInterface;
 use Kreta\Component\User\Model\Interfaces\UserInterface;
 
 /**
- * Class CommentRepository.
+ * Comment repository class.
  *
- * @package Kreta\Component\Comment\Repository
+ * @author Beñat Espiña <benatespina@gmail.com>
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  */
 class CommentRepository extends EntityRepository
 {
@@ -27,31 +29,30 @@ class CommentRepository extends EntityRepository
      * The result can be more strict adding user and createAt criteria.
      * Can do limit and offset.
      *
-     * @param \Kreta\Component\Issue\Model\Interfaces\IssueInterface $issue     The issue
-     * @param \DateTime                                              $createdAt The created at
-     * @param string                                                 $writtenBy The email of user
-     * @param int                                                    $limit     The limit
-     * @param int                                                    $offset    The offset
+     * @param IssueInterface $issue     The issue
+     * @param \DateTime      $createdOn The created at
+     * @param string         $author    The email of user
+     * @param int            $limit     The limit
+     * @param int            $offset    The offset
      *
      * @return \Kreta\Component\Comment\Model\Interfaces\CommentInterface[]
      */
     public function findByIssue(
         IssueInterface $issue,
-        \DateTime $createdAt = null,
-        $writtenBy = null,
+        \DateTime $createdOn = null,
+        $author = null,
         $limit = null,
         $offset = null
-    )
-    {
+    ) {
         $queryBuilder = $this->getQueryBuilder();
-        if ($createdAt instanceof \DateTime) {
-            $this->addCriteria($queryBuilder, ['between' => ['createdAt' => $createdAt]]);
+        if ($createdOn instanceof \DateTime) {
+            $this->addCriteria($queryBuilder, ['between' => ['createdOn' => $createdOn]]);
         }
-        if ($writtenBy !== null) {
-            $this->addCriteria($queryBuilder, ['wb.email' => $writtenBy]);
+        if ($author !== null) {
+            $this->addCriteria($queryBuilder, ['a.email' => $author]);
         }
         $this->addCriteria($queryBuilder, ['issue' => $issue]);
-        $this->orderBy($queryBuilder, ['createdAt' => 'ASC']);
+        $this->orderBy($queryBuilder, ['createdOn' => 'ASC']);
 
         if ($limit) {
             $queryBuilder->setMaxResults($limit);
@@ -66,14 +67,14 @@ class CommentRepository extends EntityRepository
     /**
      * Finds the comments of given id if the user given is its writer.
      *
-     * @param string                                               $commentId The comment id
-     * @param \Kreta\Component\User\Model\Interfaces\UserInterface $user      The user
+     * @param string        $commentId The comment id
+     * @param UserInterface $user      The user
      *
      * @return \Kreta\Component\Comment\Model\Interfaces\CommentInterface
      */
     public function findByUser($commentId, UserInterface $user)
     {
-        return $this->findOneBy(['id' => $commentId, 'writtenBy' => $user], false);
+        return $this->findOneBy(['id' => $commentId, 'author' => $user], false);
     }
 
     /**
@@ -82,9 +83,9 @@ class CommentRepository extends EntityRepository
     protected function getQueryBuilder()
     {
         return parent::getQueryBuilder()
-            ->addSelect(['i', 'wb'])
+            ->addSelect(['i', 'a'])
             ->join('c.issue', 'i')
-            ->join('c.writtenBy', 'wb');
+            ->join('c.author', 'a');
     }
 
     /**

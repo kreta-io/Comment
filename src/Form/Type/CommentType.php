@@ -1,25 +1,29 @@
 <?php
 
 /*
- * This file belongs to Kreta.
- * The source code of application includes a LICENSE file
- * with all information about license.
+ * This file is part of the Kreta package.
  *
- * @author benatespina <benatespina@gmail.com>
- * @author gorkalaucirica <gorka.lauzirika@gmail.com>
+ * (c) Beñat Espiña <benatespina@gmail.com>
+ * (c) Gorka Laucirica <gorka.lauzirika@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Kreta\Component\Comment\Form\Type;
 
+use Kreta\Component\Comment\Model\Comment;
+use Kreta\Component\Comment\Model\CommentId;
 use Kreta\Component\Core\Form\Type\Abstracts\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class CommentType.
+ * Comment form type class.
  *
- * @package Kreta\Component\Comment\Form\Type
+ * @author Beñat Espiña <benatespina@gmail.com>
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  */
 class CommentType extends AbstractType
 {
@@ -29,7 +33,7 @@ class CommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
-        $builder->add('description', 'textarea');
+        $builder->add('content', 'textarea');
     }
 
     /**
@@ -54,6 +58,6 @@ class CommentType extends AbstractType
      */
     protected function createEmptyData(FormInterface $form)
     {
-        return $this->factory->create($this->options['issue'], $this->user);
+        return Comment::publish(new CommentId(), $form->get('content'), $this->user, $this->options['issue']);
     }
 }
