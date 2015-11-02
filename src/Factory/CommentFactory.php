@@ -1,12 +1,13 @@
 <?php
 
 /*
- * This file belongs to Kreta.
- * The source code of application includes a LICENSE file
- * with all information about license.
+ * This file is part of the Kreta package.
  *
- * @author benatespina <benatespina@gmail.com>
- * @author gorkalaucirica <gorka.lauzirika@gmail.com>
+ * (c) Beñat Espiña <benatespina@gmail.com>
+ * (c) Gorka Laucirica <gorka.lauzirika@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Kreta\Component\Comment\Factory;
@@ -15,9 +16,7 @@ use Kreta\Component\Issue\Model\Interfaces\IssueInterface;
 use Kreta\Component\User\Model\Interfaces\UserInterface;
 
 /**
- * Class CommentFactory
- *
- * @package Kreta\Component\Comment\Factory
+ * Class CommentFactory.
  */
 class CommentFactory
 {
@@ -48,7 +47,7 @@ class CommentFactory
      */
     public function create(IssueInterface $issue, UserInterface $user)
     {
-        $comment = new $this->className;
+        $comment = new $this->className();
 
         return $comment
             ->setIssue($issue)
