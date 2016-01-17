@@ -22,6 +22,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class CommentTypeSpec.
+ *
+ * @author Beñat Espiña <benatespina@gmail.com>
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  */
 class CommentTypeSpec extends ObjectBehavior
 {

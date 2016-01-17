@@ -18,6 +18,9 @@ use PhpSpec\ObjectBehavior;
 
 /**
  * Class CommentSpec.
+ *
+ * @author Beñat Espiña <benatespina@gmail.com>
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  */
 class CommentSpec extends ObjectBehavior
 {

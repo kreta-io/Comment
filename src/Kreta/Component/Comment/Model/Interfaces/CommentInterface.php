@@ -17,6 +17,9 @@ use Kreta\Component\User\Model\Interfaces\UserInterface;
 
 /**
  * Interface CommentInterface.
+ *
+ * @author Beñat Espiña <benatespina@gmail.com>
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  */
 interface CommentInterface
 {

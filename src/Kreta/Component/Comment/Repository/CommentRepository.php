@@ -18,6 +18,9 @@ use Kreta\Component\User\Model\Interfaces\UserInterface;
 
 /**
  * Class CommentRepository.
+ *
+ * @author Beñat Espiña <benatespina@gmail.com>
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  */
 class CommentRepository extends EntityRepository
 {

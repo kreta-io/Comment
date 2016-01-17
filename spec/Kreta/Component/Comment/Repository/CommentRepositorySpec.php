@@ -25,6 +25,9 @@ use Prophecy\Argument;
 
 /**
  * Class CommentRepositorySpec.
+ *
+ * @author Beñat Espiña <benatespina@gmail.com>
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  */
 class CommentRepositorySpec extends BaseEntityRepository
 {

@@ -19,6 +19,9 @@ use Kreta\Component\User\Model\Interfaces\UserInterface;
 
 /**
  * Class Comment.
+ *
+ * @author Beñat Espiña <benatespina@gmail.com>
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  */
 class Comment extends AbstractModel implements CommentInterface
 {
