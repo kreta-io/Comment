@@ -21,6 +21,7 @@ use Kreta\Component\Comment\Model\Interfaces\CommentInterface;
 use Kreta\Component\Core\spec\Kreta\Component\Core\Repository\BaseEntityRepository;
 use Kreta\Component\Issue\Model\Interfaces\IssueInterface;
 use Kreta\Component\User\Model\Interfaces\UserInterface;
+use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
 /**
@@ -29,8 +30,10 @@ use Prophecy\Argument;
  * @author Beñat Espiña <benatespina@gmail.com>
  * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  */
-class CommentRepositorySpec extends BaseEntityRepository
+class CommentRepositorySpec extends ObjectBehavior
 {
+    use BaseEntityRepository;
+
     function let(EntityManager $manager, ClassMetadata $metadata)
     {
         $this->beConstructedWith($manager, $metadata);
